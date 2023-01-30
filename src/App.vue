@@ -8,5 +8,11 @@ import headerTask from '@/components/headerTask.vue'
 </script>
 
 <style>
+@import url('https://v1.fontapi.ir/css/Vazir');
 
+div {
+  padding: 0;
+  margin: 0;
+  font-family: Vazir, sans-serif;
+}
 </style>
