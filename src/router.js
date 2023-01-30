@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router"
 import Done from "./components/doneTask.vue"
 import Undone from "./components/undoneTask.vue"
-import All from "./components/allTask.vue"
+import All from "./components/all/allTask.vue"
 
 
 const routes = [

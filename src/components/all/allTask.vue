@@ -7,7 +7,10 @@
           <input v-model="getTask" type="text" class="form-control text-white bg-dark p-2" placeholder="Add a new task">
           <button @click="addTask" class="btn btn-success" type="button">ADD</button>
         </div>
-        <p class="text-white">{{ listTask }}</p>
+        <div v-for="(task , index) in listTask" :key="index">
+          <show-task :task="task" :index="index" @deleteTask="deleteTask"/>
+        </div>
+        <p class="text-white">{{listDel}}</p>
       </div>
       <div class="col"></div>
     </div>
@@ -17,10 +20,16 @@
 
 <script setup>
 import {reactive, ref} from "vue";
+import showTask from "./showTask.vue"
 
 const getTask = ref("")
 const listTask = reactive([])
+const listDel = reactive([])
 
+const deleteTask = (index) =>{
+  listDel.push(listTask[index])
+  listTask.splice(index,1)
+}
 const addTask = () => {
   if (getTask.value !== "") {
     listTask.push(getTask.value)
