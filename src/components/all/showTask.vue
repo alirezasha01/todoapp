@@ -7,7 +7,7 @@
       <button @click="deleteArr(index)">click</button>
     </div>
     <div class="col-1">
-      <p>s</p>
+      <button @click="doneArr(index)">click</button>
     </div>
   </div>
 </template>
@@ -18,9 +18,12 @@ defineProps({
   task: Array,
   index:Number
 });
-const emit = defineEmits('deleteTask')
+const emit = defineEmits(['deleteTask',"doneTask"])
 const deleteArr = index =>{
   emit('deleteTask', index)
+}
+const doneArr = index =>{
+  emit('doneTask', index)
 }
 </script>
 

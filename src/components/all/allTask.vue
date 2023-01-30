@@ -8,9 +8,11 @@
           <button @click="addTask" class="btn btn-success" type="button">ADD</button>
         </div>
         <div v-for="(task , index) in listTask" :key="index">
-          <show-task :task="task" :index="index" @deleteTask="deleteTask"/>
+          <show-task :task="task" :index="index" @deleteTask="deleteTask" @doneTask="doneTask"/>
         </div>
         <p class="text-white">{{listDel}}</p>
+        <hr/>
+        <p class="text-white">{{ListDone}}</p>
       </div>
       <div class="col"></div>
     </div>
@@ -25,7 +27,12 @@ import showTask from "./showTask.vue"
 const getTask = ref("")
 const listTask = reactive([])
 const listDel = reactive([])
+const ListDone = reactive([])
 
+const doneTask = (index)=>{
+  ListDone.push(listTask[index])
+  listTask.splice(index,1)
+}
 const deleteTask = (index) =>{
   listDel.push(listTask[index])
   listTask.splice(index,1)
