@@ -10,9 +10,6 @@
         <div v-for="(task , index) in listTask" :key="index">
           <show-task :task="task" :index="index" @deleteTask="deleteTask" @doneTask="doneTask"/>
         </div>
-        <p class="text-white">{{listDel}}</p>
-        <hr/>
-        <p class="text-white">{{ListDone}}</p>
       </div>
       <div class="col"></div>
     </div>
@@ -58,4 +55,5 @@ button {
 .shadow-input {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 </style>
