@@ -1,9 +1,10 @@
 <template>
-  <task-input/>
+  <header-task/>
+  <router-view></router-view>
 </template>
 
 <script setup>
-import taskInput from '@/components/taskInput'
+import headerTask from '@/components/headerTask.vue'
 </script>
 
 <style>
