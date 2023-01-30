@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand bg-dark" data-bs-theme="dark">
-    <div>
+    <a class="navbar-brand mr-5" href="#">To Do List</a>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -14,7 +14,6 @@
           </li>
         </ul>
       </div>
-    </div>
   </nav>
 </template>
 
@@ -24,5 +23,8 @@
 <style scoped>
 .router-link-active {
   color: white !important;
+}
+.mr-5{
+  margin-left: 10px !important;
 }
 </style>
