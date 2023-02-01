@@ -1,20 +1,31 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col"></div>
-      <div class="col-md-6">
-        <div class="brd">
-          <p>hello</p>
+    <div v-for="list in listDone" :key="list.id">
+      <div class="row" v-if="list.completed == true">
+        <div class="col"></div>
+        <div class="col-md-6">
+          <div class="brd">
+            <p>{{ list.title }}</p>
+          </div>
         </div>
+        <div class="col"></div>
       </div>
-      <div class="col"></div>
     </div>
   </div>
 </template>
 
 <script setup>
+import axios from "axios";
+import {ref} from "vue"
 
-
+const listDone = ref([])
+axios.get('https://jsonplaceholder.typicode.com/todos')
+    .then(function (response) {
+      listDone.value = response.data
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 </script>
 
 <style scoped>
