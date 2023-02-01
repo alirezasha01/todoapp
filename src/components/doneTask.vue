@@ -7,14 +7,18 @@
           <p>hello</p>
         </div>
       </div>
-        <div class="col"></div>
-      </div>
+      <div class="col"></div>
+    </div>
   </div>
 </template>
 
 <script setup>
 
+import {inject} from "vue";
 
+const listDone = inject("listDone")
+
+console.log(listDone)
 </script>
 
 <style scoped>

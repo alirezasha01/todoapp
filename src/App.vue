@@ -15,7 +15,8 @@ div {
   margin: 0;
   font-family: Vazir, sans-serif;
 }
-body{
+
+body {
   background: #212529 !important;
   background-size: auto;
 }

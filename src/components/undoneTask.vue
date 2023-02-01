@@ -4,7 +4,7 @@
       <div class="col"></div>
       <div class="col-md-6">
         <div class="brd">
-          <p>hello</p>
+          <p>{{ listDel }}</p>
         </div>
       </div>
       <div class="col"></div>
@@ -14,6 +14,9 @@
 
 <script setup>
 
+import {inject} from "vue";
+
+const listDel = inject("listDel")
 
 </script>
 

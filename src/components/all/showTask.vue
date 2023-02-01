@@ -13,28 +13,31 @@
 </template>
 
 <script setup>
-import {defineProps , defineEmits} from "vue";
+import {defineProps, defineEmits} from "vue";
+
 defineProps({
   task: Array,
-  index:Number
+  index: Number
 });
-const emit = defineEmits(['deleteTask',"doneTask"])
-const deleteArr = index =>{
+const emit = defineEmits(['deleteTask', "doneTask"])
+const deleteArr = index => {
   emit('deleteTask', index)
 }
-const doneArr = index =>{
+const doneArr = index => {
   emit('doneTask', index)
 }
 </script>
 
 <style scoped>
-div{
-  color:white;
+div {
+  color: white;
 }
-.delIcon{
+
+.delIcon {
   color: red;
 }
-.brd{
+
+.brd {
   border: rgba(255, 255, 255, 0.2) 1px solid;
   border-radius: 6px;
   padding-top: 10px;
