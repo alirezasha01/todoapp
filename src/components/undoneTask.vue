@@ -1,23 +1,31 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col"></div>
-      <div class="col-md-6">
-        <div class="brd">
-          <p>{{ listDel }}</p>
+    <div v-for="list in listDel" :key="list.id">
+      <div class="row" v-if="list.completed == false">
+        <div class="col"></div>
+        <div class="col-md-6">
+          <div class="brd">
+            <p>{{ list.title }}</p>
+          </div>
         </div>
+        <div class="col"></div>
       </div>
-      <div class="col"></div>
     </div>
   </div>
 </template>
 
 <script setup>
+import axios from "axios";
+import {ref} from "vue"
 
-import {inject} from "vue";
-
-const listDel = inject("listDel")
-
+const listDel = ref([])
+axios.get('https://jsonplaceholder.typicode.com/todos')
+    .then(function (response) {
+      listDel.value = response.data
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 </script>
 
 <style scoped>

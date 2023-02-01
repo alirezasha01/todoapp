@@ -14,11 +14,7 @@
 
 <script setup>
 
-import {inject} from "vue";
 
-const listDone = inject("listDone")
-
-console.log(listDone)
 </script>
 
 <style scoped>

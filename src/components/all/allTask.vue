@@ -18,27 +18,40 @@
 </template>
 
 <script setup>
-import {provide, reactive, ref} from "vue";
+import {reactive, ref} from "vue";
 import showTask from "./showTask.vue"
 import axios from "axios"
 
 const getTask = ref("")
 const listTask = reactive([])
-const listDel = []
-const ListDone = []
 
 const doneTask = (index) => {
-  ListDone.push(listTask[index])
   listTask.splice(index, 1)
+  axios.get('https://jsonplaceholder.typicode.com/todos')
+      .then(function (response) {
+        console.log(response);
+        // change completed to true
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 }
 const deleteTask = (index) => {
-  listDel.push(listTask[index])
   listTask.splice(index, 1)
+  axios.get('https://jsonplaceholder.typicode.com/todos')
+      .then(function (response) {
+        console.log(response);
+        // change completed to false
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 }
 const addTask = () => {
   if (getTask.value !== "") {
-    axios.post('https://jsonplaceholder.typicode.com/posts', {
-      "title" : getTask.value
+    axios.post('https://jsonplaceholder.typicode.com/todos', {
+      "title" : getTask.value,
+      "completed" : null
     })
         .then(function (response) {
           console.log(response);
@@ -50,8 +63,6 @@ const addTask = () => {
         });
   }
 }
-provide("listDel", listDel)
-provide("listDone", ListDone)
 </script>
 
 <style scoped>
